@@ -1,9 +1,9 @@
 class Player:
 
-    def __init__(self, id):
+    def __init__(self, id, fname='', lname=''):
         self.id = id
-        self.firstName = ""
-        self.lastName = ""
+        self.firstName = fname
+        self.lastName = lname
 
     def getId(self):
         return self.id
