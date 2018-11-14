@@ -5,6 +5,11 @@ class Team:
 
     def __init__(self, id):
         self.id = id
+        self.name = None
+        self.players = []
+        self.coach = None
+        self.city = None
+        self.state = None
 
 
     def getId(self):
@@ -26,7 +31,7 @@ class Team:
         return self.players
 
     def addPlayer(self, player):
-        self.players.push(player)
+        self.players.append(player)
 
     def removePlayer(self, playerIn):
         itr = 0
@@ -50,4 +55,10 @@ class Team:
 
     def setState(self, state):
         self.state = state
+
+    def __str__(self):
+        players = ''
+        for player in self.players:
+            players = players + str(player) + ' '
+        return '{}, {}, {}, {}'.format(self.name, self.city, self.state, players)
 
