@@ -1,4 +1,4 @@
-import Player.py
+from Player import Player
 
 class Coach(Player):
 

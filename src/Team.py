@@ -1,4 +1,4 @@
-import Coach.py
+from Coach import Coach
 
 
 class Team:

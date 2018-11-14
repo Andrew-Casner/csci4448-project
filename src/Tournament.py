@@ -3,7 +3,7 @@ class Tournament:
     def __init__(self, id, name):
         self.id = id
         self.name = name
-        self.games = [][]
+        self.games = []
         self.teams = []
         self.winner = None
 
