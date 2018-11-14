@@ -21,3 +21,6 @@ class Player:
         self.firstName = first
         self.lastName = last
 
+    def __str__(self):
+        return '{} {}'.format(self.firstName, self.lastName)
+
