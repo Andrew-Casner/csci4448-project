@@ -3,13 +3,13 @@ from Coach import Coach
 
 class Team:
 
-    def __init__(self, id):
+    def __init__(self, id, name=None, city=None, state=None):
         self.id = id
-        self.name = None
+        self.name = name
         self.players = []
         self.coach = None
-        self.city = None
-        self.state = None
+        self.city = city
+        self.state = state
 
 
     def getId(self):
