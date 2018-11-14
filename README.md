@@ -10,6 +10,6 @@
 1. Users can specify the number of competitiors in each tournment and they type of tournmanet it is.
 1. Users can sign in
 1. Users can view their tournament visually.
-1. The software will automatically generate a tournament beased on the input variables.
+1. The software will automatically generate a tournament based on the input variables.
 1. Users can update the status of the tournament.
 1. Users can view the status of a tournament. 
