@@ -129,6 +129,7 @@ class Tournament:
         else:
             print('Tournament Already Started')
 
+
     def update(self):
         for idx in range(len(self.games)-2, -1, -1):
             count = 0
