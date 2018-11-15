@@ -86,3 +86,5 @@ class Game:
     def gameComplete(self):
         self.complete = True
 
+    def __str__(self):
+        return '{} at. {}'.format(str(self.awayTeam), str(self.homeTeam))
