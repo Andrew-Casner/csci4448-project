@@ -86,5 +86,12 @@ class Game:
     def gameComplete(self):
         self.complete = True
 
+    def getWinningTeam(self):
+        if self.complete:
+            if self.scoreAway > self.scoreHome:
+                return self.awayTeam
+            else:
+                return self.homeTeam
+
     def __str__(self):
         return '{} at. {}'.format(str(self.awayTeam), str(self.homeTeam))
