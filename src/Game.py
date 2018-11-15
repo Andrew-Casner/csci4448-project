@@ -1,18 +1,18 @@
 class Game:
 
-    def __init__(self, id):
+    def __init__(self, id, ht=None, at=None, d=0, m=0, y=0, t=None, loc=None):
         self.id = id
-        self.homeTeam = None
-        self.awayTeam = None
+        self.homeTeam = ht
+        self.awayTeam = at
         self.scoreHome = 0
         self.scoreAway = 0
         self.forefit = False
         self.complete = False
-        self.day = 0
-        self.month = 0
-        self.year = 0
-        self.time = None
-        self.location = ""
+        self.day = d
+        self.month = m
+        self.year = y
+        self.time = t
+        self.location = loc
 
     def getId(self):
         return self.id
