@@ -10,6 +10,7 @@ class Team:
         self.coach = None
         self.city = city
         self.state = state
+        self.seed = 0
 
 
     def getId(self):
@@ -56,9 +57,12 @@ class Team:
     def setState(self, state):
         self.state = state
 
+    def setSeed(self, seed):
+        self.seed = seed
+
     def __str__(self):
         players = ''
         for player in self.players:
             players = players + str(player) + ' '
-        return '{}, {}, {}, {}'.format(self.name, self.city, self.state, players)
+        return '#{} {}, {}, {}, {}'.format(self.seed, self.name, self.city, self.state, players)
 
