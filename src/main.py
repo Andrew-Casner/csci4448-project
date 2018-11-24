@@ -1,3 +1,4 @@
+import django
 import uuid
 from Game import Game
 from Player import Player
@@ -6,6 +7,7 @@ from Team import Team
 from Tournament import Tournament
 
 def main():
+    print(django.get_version())
     # Create Players
     p1 = Player(uuid.uuid4(), 'Drew', 'Casner')
     p2 = Player(uuid.uuid4(), 'RJ', 'Morley')
@@ -66,12 +68,15 @@ def main():
     turny1.start()
 
     # Update results
+    #'''
     turny1.getGames()[2][0].setScoreHome(90)
     turny1.getGames()[2][0].setScoreAway(80)
-    turny1.getGames()[2][0].setScoreAway(80)
     turny1.getGames()[2][0].gameComplete()
+    print('')
     print(turny1.getGames()[2][0].getWinningTeam())
+    print('')
     turny1.update()
+    #'''
 
 
 if __name__=='__main__':
