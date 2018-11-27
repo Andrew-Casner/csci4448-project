@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from manager.views import index, teams, players
+from manager.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^teams/', teams, name="teams"),
     url(r'^players/', players, name="player"),
+    url(r'^tournament/', tournament, name="tournament"),
     url(r'^$', index, name="manager"),
     url(r'^$index', index, name="manager"),
 ]

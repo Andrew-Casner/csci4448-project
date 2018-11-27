@@ -1,11 +1,20 @@
 from django.shortcuts import render
-
+from manager.main import Runner
 # Create your views here.
+r = Runner()
 def index(request):
-    return render(request, "index.html")
+    turny = r.getTourny()
+    return render(request, "index.html", {'turny': turny})
 
 def teams(request):
-    return render(request, "teams.html")
+
+    teams = r.getTeams()
+    return render(request, "teams.html", {'teams': teams})
 
 def players(request):
-    return render(request, "players.html")
+    players = r.getPlayers()
+    return render(request, "players.html", {'players': players})
+
+def tournament(request):
+    turny = r.getTourny()
+    return render(request, "tournament.html", {'turny': turny})

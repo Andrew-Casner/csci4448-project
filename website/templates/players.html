@@ -42,13 +42,15 @@
     </nav>
     <div class="container">
         <div class="row" id="row1">
+            {% for p in players %}
             <div class="col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Player Name</h3>
+                        <h3 class="panel-title">{{p.getFullName}}</h3>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 
