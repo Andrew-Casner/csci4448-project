@@ -18,3 +18,6 @@ def players(request):
 def tournament(request):
     turny = r.getTourny()
     return render(request, "tournament.html", {'turny': turny})
+
+def login(request):
+    return render(request, "login.html")

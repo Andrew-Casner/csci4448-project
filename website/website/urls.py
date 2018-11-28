@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^teams/', teams, name="teams"),
     url(r'^players/', players, name="player"),
     url(r'^tournament/', tournament, name="tournament"),
+    url(r'^login/', login, name="login"),
     url(r'^$', index, name="manager"),
     url(r'^$index', index, name="manager"),
 ]
