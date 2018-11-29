@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>main.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>main.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">from</span> <span class="nn">manager.Game</span> <span class="kn">import</span> <span class="n">Game</span>
+<span class="kn">from</span> <span class="nn">manager.Player</span> <span class="kn">import</span> <span class="n">Player</span>
+<span class="kn">from</span> <span class="nn">manager.Coach</span> <span class="kn">import</span> <span class="n">Coach</span>
+<span class="kn">from</span> <span class="nn">manager.Team</span> <span class="kn">import</span> <span class="n">Team</span>
+<span class="kn">from</span> <span class="nn">manager.Tournament</span> <span class="kn">import</span> <span class="n">Tournament</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">Runner</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span> <span class="o">=</span> <span class="p">[]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Create Players</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">p1</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Drew&#39;</span><span class="p">,</span> <span class="s1">&#39;Casner&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p2</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;Morley&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Jesper&#39;</span><span class="p">,</span> <span class="s1">&#39;Stryen&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p4</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Austin&#39;</span><span class="p">,</span> <span class="s1">&#39;Smith&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p5</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Lucas&#39;</span><span class="p">,</span> <span class="s1">&#39;Sward&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p6</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Ben&#39;</span><span class="p">,</span> <span class="s1">&#39;Settlerquist&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p7</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Powell&#39;</span><span class="p">,</span> <span class="s1">&#39;Hinson&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p8</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Quinn&#39;</span><span class="p">,</span> <span class="s1">&#39;Mahone&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p9</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Colt&#39;</span><span class="p">,</span> <span class="s1">&#39;Wise&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p10</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;Becker&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p11</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Matt&#39;</span><span class="p">,</span> <span class="s1">&#39;Skogen&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p12</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Isaiah&#39;</span><span class="p">,</span> <span class="s1">&#39;Jones&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p13</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Gadbois&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p14</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Kian&#39;</span><span class="p">,</span> <span class="s1">&#39;Tanner&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p15</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Pete&#39;</span><span class="p">,</span> <span class="s1">&#39;Snowden&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p16</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Nick&#39;</span><span class="p">,</span> <span class="s1">&#39;Hearon&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p7</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p8</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p9</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p11</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p12</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p13</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p14</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p15</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p16</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>Create Teams</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">t1</span> <span class="o">=</span> <span class="n">Team</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;The Killerz&#39;</span><span class="p">,</span> <span class="s1">&#39;Boulder&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t2</span> <span class="o">=</span> <span class="n">Team</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;The Vikings&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t3</span> <span class="o">=</span> <span class="n">Team</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;The High Flyers&#39;</span><span class="p">,</span> <span class="s1">&#39;Austin&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t3</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t3</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p7</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t4</span> <span class="o">=</span> <span class="n">Team</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;The Ballers&#39;</span><span class="p">,</span> <span class="s1">&#39;Aurora&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t4</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t4</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p8</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t5</span> <span class="o">=</span> <span class="n">Team</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;The Wurst&#39;</span><span class="p">,</span> <span class="s1">&#39;Boulder&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t5</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p9</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t5</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t6</span> <span class="o">=</span> <span class="n">Team</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Da N3rds&#39;</span><span class="p">,</span> <span class="s1">&#39;Seattle&#39;</span><span class="p">,</span> <span class="s1">&#39;Washington&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t6</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p11</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t6</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p12</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t7</span> <span class="o">=</span> <span class="n">Team</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;The Climbers&#39;</span><span class="p">,</span> <span class="s1">&#39;LA&#39;</span><span class="p">,</span> <span class="s1">&#39;Cali&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t7</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p13</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t7</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p14</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t8</span> <span class="o">=</span> <span class="n">Team</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Rockstars&#39;</span><span class="p">,</span> <span class="s1">&#39;Summit County&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t8</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p15</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t8</span><span class="o">.</span><span class="n">addPlayer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p16</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t7</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t8</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Test Game
+g1 = Game(uuid.uuid4(), self.t1, self.t2)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Create Tournament</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span> <span class="o">=</span> <span class="n">Tournament</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(),</span> <span class="s1">&#39;Champions Club&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span><span class="o">.</span><span class="n">addTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span><span class="o">.</span><span class="n">addTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span><span class="o">.</span><span class="n">addTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span><span class="o">.</span><span class="n">addTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span><span class="o">.</span><span class="n">addTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span><span class="o">.</span><span class="n">addTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span><span class="o">.</span><span class="n">addTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t7</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span><span class="o">.</span><span class="n">addTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turny1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>Update results</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        self.turny1.getGames()[2][0].setScoreHome(90)</span>
+<span class="s1">        self.turny1.getGames()[2][0].setScoreAway(80)</span>
+<span class="s1">        self.turny1.getGames()[2][0].gameComplete()</span>
+<span class="s1">        print(&#39;&#39;)</span>
+<span class="s1">        print(self.turny1.getGames()[2][0].getWinningTeam())</span>
+<span class="s1">        print(&#39;&#39;)</span>
+<span class="s1">        self.turny1.update()</span>
+<span class="s1">#DIVIDER</span>
+
+<span class="s1">#DIVIDER</span>
+<span class="s1">    def getPlayers(self):</span>
+<span class="s1">        return self.players</span>
+<span class="s1">#DIVIDER</span>
+<span class="s1">    def getTeams(self):</span>
+<span class="s1">        return self.teams</span>
+<span class="s1">#DIVIDER</span>
+<span class="s1">    def getTourny(self):</span>
+<span class="s1">        return self.turny1</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>&rsquo;&lsquo;&rsquo;</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

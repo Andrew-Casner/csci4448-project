@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>Tournament.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>Tournament.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">from</span> <span class="nn">manager.Game</span> <span class="kn">import</span> <span class="n">Game</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">Tournament</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">elims</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">gt</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">games</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">winner</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elims</span> <span class="o">=</span> <span class="n">elims</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">started</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">startTime</span> <span class="o">=</span> <span class="n">st</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameLength</span> <span class="o">=</span> <span class="n">gt</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">getID</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">setName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">getTeams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">teams</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">getGames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">games</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">addTeam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">team</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Generate Random Seed if non seeeded tourny</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">if</span> <span class="n">seed</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">seed</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">started</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">team</span><span class="p">)</span>
+            <span class="n">team</span><span class="o">.</span><span class="n">setSeed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tournament has started, cannot add team&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">removeTeam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">teamIn</span><span class="p">):</span>
+        <span class="n">itr</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">popIdx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">team</span> <span class="o">==</span> <span class="n">teamIn</span><span class="p">:</span>
+                <span class="n">popIdx</span> <span class="o">=</span> <span class="n">itr</span>
+            <span class="n">itr</span> <span class="o">=</span> <span class="n">itr</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">popIdx</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">popIdx</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">getWinner</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">winner</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">setWinner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">winner</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">winner</span> <span class="o">=</span> <span class="n">winner</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">started</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">started</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elims</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1">#Single Elimination</span>
+                <span class="n">numTeams</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="p">)</span>
+                <span class="n">depth</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">numTeams</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+                <span class="n">totGames</span> <span class="o">=</span> <span class="n">numTeams</span> <span class="o">-</span> <span class="mi">1</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>Sort teams by seed</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numTeams</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">setSeed</span><span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+                <span class="n">gAdded</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">botGames</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
+                    <span class="n">botGames</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">games</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)):</span>
+                        <span class="k">if</span> <span class="n">gAdded</span> <span class="o">&lt;</span> <span class="n">totGames</span><span class="p">:</span> <span class="c1">#Add Game</span>
+                            <span class="n">gAdded</span><span class="o">+=</span><span class="mi">1</span>
+                            <span class="n">botGames</span><span class="o">+=</span><span class="mi">1</span>
+                            <span class="n">newGame</span> <span class="o">=</span> <span class="n">Game</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
+                            <span class="n">games</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newGame</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">games</span><span class="p">)</span>
+
+
+                <span class="n">teamSet</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">curDepth</span> <span class="o">=</span> <span class="n">depth</span>
+                <span class="n">teamAdded</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">teamAdded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">for</span> <span class="nb">round</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">):</span>
+                    <span class="n">seed</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">curDepth</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">round</span><span class="p">):</span>
+                        <span class="n">teamIdx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">teamAdded</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                        <span class="k">if</span> <span class="n">teamIdx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">teamAdded</span><span class="p">:</span>
+                            <span class="n">game</span><span class="o">.</span><span class="n">setAwayTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="p">[</span><span class="n">teamIdx</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                            <span class="n">teamAdded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">teamIdx</span><span class="p">)</span>
+                        <span class="n">teamIdx</span> <span class="o">=</span> <span class="n">seed</span> <span class="o">-</span> <span class="n">teamIdx</span>
+                        <span class="k">if</span> <span class="n">teamIdx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">teamAdded</span><span class="p">:</span>
+                            <span class="n">game</span><span class="o">.</span><span class="n">setHomeTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="p">[</span><span class="n">teamIdx</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                            <span class="n">teamAdded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">teamIdx</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">game</span><span class="o">.</span><span class="n">getAwayTeam</span><span class="p">():</span>
+                                <span class="n">game</span><span class="o">.</span><span class="n">setHomeTeam</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">getAwayTeam</span><span class="p">())</span>
+                                <span class="n">game</span><span class="o">.</span><span class="n">setAwayTeam</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>Make sure home and away is correct</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                        <span class="k">if</span> <span class="n">game</span><span class="o">.</span><span class="n">getAwayTeam</span><span class="p">()</span> <span class="ow">and</span> <span class="n">game</span><span class="o">.</span><span class="n">getHomeTeam</span><span class="p">():</span>
+                            <span class="k">if</span> <span class="n">game</span><span class="o">.</span><span class="n">getAwayTeam</span><span class="p">()</span><span class="o">.</span><span class="n">seed</span> <span class="o">&lt;</span> <span class="n">game</span><span class="o">.</span><span class="n">getHomeTeam</span><span class="p">()</span><span class="o">.</span><span class="n">seed</span><span class="p">:</span>
+                                <span class="n">tempTeam</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">getAwayTeam</span><span class="p">()</span>
+                                <span class="n">game</span><span class="o">.</span><span class="n">setAwayTeam</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">getHomeTeam</span><span class="p">())</span>
+                                <span class="n">game</span><span class="o">.</span><span class="n">setHomeTeam</span><span class="p">(</span><span class="n">tempTeam</span><span class="p">)</span>
+
+
+                    <span class="n">curDepth</span><span class="o">-=</span><span class="mi">1</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                <span class="n">roundIdx</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">for</span> <span class="nb">round</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;====Round {}====&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">roundIdx</span><span class="p">))</span>
+                    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="nb">round</span><span class="p">:</span>
+                        <span class="k">print</span><span class="p">(</span><span class="n">game</span><span class="p">)</span>
+                    <span class="n">roundIdx</span><span class="o">+=</span><span class="mi">1</span>
+
+            <span class="k">else</span><span class="p">:</span> <span class="c1"># Double Elimination</span>
+                <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tournament Already Started&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">game</span><span class="o">.</span><span class="n">getAwayTeam</span><span class="p">():</span>
+                    <span class="n">game</span><span class="o">.</span><span class="n">setAwayTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">count</span><span class="p">]</span><span class="o">.</span><span class="n">getWinningTeam</span><span class="p">())</span>
+                    <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">game</span><span class="o">.</span><span class="n">getHomeTeam</span><span class="p">():</span>
+                    <span class="n">game</span><span class="o">.</span><span class="n">setHomeTeam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">count</span><span class="p">]</span><span class="o">.</span><span class="n">getWinningTeam</span><span class="p">())</span>
+                    <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">roundIdx</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="nb">round</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">games</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;====Round {}====&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">roundIdx</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="nb">round</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">game</span><span class="p">)</span>
+            <span class="n">roundIdx</span><span class="o">+=</span><span class="mi">1</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
